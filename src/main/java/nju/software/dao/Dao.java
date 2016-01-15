@@ -13,6 +13,7 @@ import java.sql.SQLException;
 public class Dao {
 
     private static Logger logger = LogManager.getLogger(Dao.class);
+
     public static void main(String[] args) {
         logger.info("start connect to the database");
         new Dao().connectDB();
@@ -22,7 +23,7 @@ public class Dao {
     public void connectDB() {
         String driverName = "com.mysql.jdbc.Driver";
         try {
-            Class.forName(driverName); // here is the ClassNotFoundException
+            Class.forName(driverName);
             String serverName = "localhost";
             String database = "contact";
             String url = "jdbc:mysql://" + serverName + "/" + database;
