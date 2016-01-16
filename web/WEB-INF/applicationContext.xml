@@ -25,7 +25,7 @@
     <tx:annotation-driven/>
     <aop:config>
         <aop:advisor id="managerTx" advice-ref="txAdvice"
-                     pointcut="within(nju.software.dao.*)"
+                     pointcut="within(nju.software.service.*)"
                      order="1"/>
     </aop:config>
     <tx:advice id="txAdvice">

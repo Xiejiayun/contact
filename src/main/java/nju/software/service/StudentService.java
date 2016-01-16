@@ -6,7 +6,6 @@ import nju.software.service.convertor.StudentConvertor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -18,7 +17,7 @@ public class StudentService {
     @Autowired
     StudentDao studentDao;
 
-    public List<StudentModel> getAllStudentModel() {
+    public List<StudentModel> getAllStudents() {
         List<StudentEntity> studentEntities = studentDao.getAllStudents();
         return StudentConvertor.getModelsfromEntities(studentEntities);
     }
