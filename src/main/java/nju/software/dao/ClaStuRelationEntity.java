@@ -11,7 +11,7 @@ import java.io.Serializable;
  */
 @Entity
 @Table(name = "ClaStuRelation")
-public class ClaStuRelationEntity implements Serializable{
+public class ClaStuRelationEntity implements Serializable {
     private int classid;
 
     private int stuid;
@@ -25,6 +25,7 @@ public class ClaStuRelationEntity implements Serializable{
     public void setStuid(int stuid) {
         this.stuid = stuid;
     }
+
     @Id
     @Column(name = "classid")
     public int getClassid() {

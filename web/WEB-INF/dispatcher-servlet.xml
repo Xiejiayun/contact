@@ -7,10 +7,6 @@
         <bean class="org.springframework.web.servlet.i18n.LocaleChangeInterceptor"/>
     </mvc:interceptors>
 
-<!--    <bean id="urlMapping"
-          class="org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter">
-    </bean>-->
-
     <bean id="viewResolver"
           class="org.springframework.web.servlet.view.UrlBasedViewResolver">
         <property name="viewClass">

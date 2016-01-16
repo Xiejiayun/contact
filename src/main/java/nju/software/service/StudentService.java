@@ -2,6 +2,7 @@ package nju.software.service;
 
 import nju.software.dao.StudentDao;
 import nju.software.dao.StudentEntity;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -13,6 +14,7 @@ import java.util.List;
 @Service
 public class StudentService {
 
+    @Autowired
     StudentDao studentDao;
 
     public List<StudentModel> getAllStudentModel() {
@@ -21,7 +23,7 @@ public class StudentService {
         return new ArrayList<StudentModel>();
     }
 
-    public void setStudentDao(StudentDao studentDao) {
-        this.studentDao = studentDao;
-    }
+//    public void setStudentDao(StudentDao studentDao) {
+//        this.studentDao = studentDao;
+//    }
 }
