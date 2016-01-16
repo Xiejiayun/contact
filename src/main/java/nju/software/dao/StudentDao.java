@@ -1,6 +1,7 @@
 package nju.software.dao;
 
 import org.springframework.orm.hibernate5.support.HibernateDaoSupport;
+import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -8,6 +9,7 @@ import java.util.List;
 /**
  * Created by lab on 16-1-15.
  */
+@Component
 public class StudentDao extends HibernateDaoSupport {
 
     /**
