@@ -2,6 +2,7 @@ package nju.software.service;
 
 import nju.software.dao.StudentDao;
 import nju.software.dao.entity.StudentEntity;
+import nju.software.service.convertor.StudentConvertor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -19,11 +20,33 @@ public class StudentService {
 
     public List<StudentModel> getAllStudentModel() {
         List<StudentEntity> studentEntities = studentDao.getAllStudents();
-        System.out.println();
-        return new ArrayList<StudentModel>();
+        return StudentConvertor.getModelsfromEntities(studentEntities);
     }
 
-//    public void setStudentDao(StudentDao studentDao) {
-//        this.studentDao = studentDao;
-//    }
+    public StudentModel getStudentByName(String name) {
+        StudentEntity studentEntity = studentDao.getStudentByName(name);
+        return StudentConvertor.getModelFromEntity(studentEntity);
+    }
+
+    public StudentModel getStudentById(int stuid) {
+        StudentEntity studentEntity = studentDao.getStudentById(stuid);
+        return StudentConvertor.getModelFromEntity(studentEntity);
+    }
+
+
+    public boolean createStudent(StudentModel studentModel) {
+        StudentEntity studentEntity = StudentConvertor.getEntityFromModel(studentModel);
+        return studentDao.createStudent(studentEntity);
+    }
+
+    public boolean updateStudent(StudentModel studentModel) {
+        StudentEntity studentEntity = StudentConvertor.getEntityFromModel(studentModel);
+        return studentDao.updateStudent(studentEntity);
+    }
+
+    public boolean deleteStudent(StudentModel studentModel) {
+        StudentEntity studentEntity = StudentConvertor.getEntityFromModel(studentModel);
+        return studentDao.deleteStudent(studentEntity);
+    }
+
 }

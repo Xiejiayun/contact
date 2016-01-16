@@ -5,6 +5,8 @@ import nju.software.service.StudentModel;
 import org.apache.commons.beanutils.BeanUtils;
 
 import java.lang.reflect.InvocationTargetException;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by lab on 16-1-16.
@@ -34,6 +36,25 @@ public class StudentConvertor {
         }
         return studentModel;
     }
+
+    public static List<StudentModel> getModelsfromEntities(List<StudentEntity> studentEntities) {
+        List<StudentModel> studentModels = new ArrayList<StudentModel>();
+        for (StudentEntity studentEntity : studentEntities) {
+            StudentModel studentModel = getModelFromEntity(studentEntity);
+            studentModels.add(studentModel);
+        }
+        return studentModels;
+    }
+
+    public static List<StudentEntity> getEntitiesFromModels(List<StudentModel> studentModels) {
+        List<StudentEntity> studentEntities = new ArrayList<StudentEntity>();
+        for (StudentModel studentModel : studentModels) {
+            StudentEntity studentEntity = getEntityFromModel(studentModel);
+            studentEntities.add(studentEntity);
+        }
+        return  studentEntities;
+    }
+
 
     public static void main(String[] args) {
         StudentModel studentModel = new StudentModel("xie","male","8",10086);
