@@ -16,7 +16,7 @@ public class StudentController {
 
         private StudentDao studentDao;
 
-        @RequestMapping(value="/")
+        @RequestMapping(value="index.do")
         public ModelAndView home() {
             List<StudentEntity> listUsers = studentDao.getAllStudents();
             ModelAndView model = new ModelAndView("home");

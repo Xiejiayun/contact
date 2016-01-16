@@ -34,4 +34,23 @@ public class ClaStuRelationEntity implements Serializable{
     public void setClassid(int classid) {
         this.classid = classid;
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        ClaStuRelationEntity that = (ClaStuRelationEntity) o;
+
+        if (classid != that.classid) return false;
+        return stuid == that.stuid;
+
+    }
+
+    @Override
+    public int hashCode() {
+        int result = classid;
+        result = 31 * result + stuid;
+        return result;
+    }
 }
