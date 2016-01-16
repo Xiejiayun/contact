@@ -5,6 +5,7 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.orm.hibernate5.support.HibernateDaoSupport;
 import org.springframework.stereotype.Component;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -44,7 +45,8 @@ public class StudentDao extends HibernateDaoSupport {
         return studentEntities.size() == 0 ? null : studentEntities.get(0);
     }
 
-    public boolean addStudent(StudentEntity studentEntity) {
+
+    public boolean createStudent(StudentEntity studentEntity) {
         try {
             getHibernateTemplate().evict(studentEntity);
             getHibernateTemplate().save(studentEntity);
