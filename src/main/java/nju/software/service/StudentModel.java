@@ -68,4 +68,15 @@ public class StudentModel {
     public void setPhone(Integer phone) {
         this.phone = phone;
     }
+
+    @Override
+    public String toString() {
+        return "StudentModel{" +
+                "stuid=" + stuid +
+                ", name='" + name + '\'' +
+                ", gender='" + gender + '\'' +
+                ", grade='" + grade + '\'' +
+                ", phone=" + phone +
+                '}';
+    }
 }

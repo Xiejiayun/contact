@@ -1,7 +1,8 @@
 package nju.software;
 
 import nju.software.dao.StudentDao;
-import nju.software.dao.StudentEntity;
+import nju.software.dao.entity.StudentEntity;
+import nju.software.service.StudentModel;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
@@ -22,5 +23,7 @@ public class Test {
             String name = student.getName();
             System.out.println(name);
         }
+        StudentModel studentModel = new StudentModel("xie","male","8",10086);
+//        StudentEntity studentEntity = StudentConvertor.getEntityFromModel(studentModel);
     }
 }

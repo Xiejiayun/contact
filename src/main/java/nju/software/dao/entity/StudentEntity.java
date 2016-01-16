@@ -1,4 +1,4 @@
-package nju.software.dao;
+package nju.software.dao.entity;
 
 import javax.persistence.*;
 
@@ -88,5 +88,16 @@ public class StudentEntity {
         result = 31 * result + (grade != null ? grade.hashCode() : 0);
         result = 31 * result + (phone != null ? phone.hashCode() : 0);
         return result;
+    }
+
+    @Override
+    public String toString() {
+        return "StudentEntity{" +
+                "stuid=" + stuid +
+                ", name='" + name + '\'' +
+                ", gender='" + gender + '\'' +
+                ", grade='" + grade + '\'' +
+                ", phone=" + phone +
+                '}';
     }
 }

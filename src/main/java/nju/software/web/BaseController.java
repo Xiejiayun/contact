@@ -1,7 +1,7 @@
 package nju.software.web;
 
 import nju.software.dao.StudentDao;
-import nju.software.dao.StudentEntity;
+import nju.software.dao.entity.StudentEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;

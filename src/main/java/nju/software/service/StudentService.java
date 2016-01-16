@@ -1,7 +1,7 @@
 package nju.software.service;
 
 import nju.software.dao.StudentDao;
-import nju.software.dao.StudentEntity;
+import nju.software.dao.entity.StudentEntity;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

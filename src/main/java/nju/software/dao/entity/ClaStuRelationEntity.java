@@ -1,4 +1,4 @@
-package nju.software.dao;
+package nju.software.dao.entity;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -53,5 +53,13 @@ public class ClaStuRelationEntity implements Serializable {
         int result = classid;
         result = 31 * result + stuid;
         return result;
+    }
+
+    @Override
+    public String toString() {
+        return "ClaStuRelationEntity{" +
+                "classid=" + classid +
+                ", stuid=" + stuid +
+                '}';
     }
 }
