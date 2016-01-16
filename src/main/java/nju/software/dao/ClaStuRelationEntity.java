@@ -4,13 +4,14 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import java.io.Serializable;
 
 /**
  * Created by lab on 16-1-15.
  */
 @Entity
 @Table(name = "ClaStuRelation")
-public class ClaStuRelationEntity {
+public class ClaStuRelationEntity implements Serializable{
     private int classid;
 
     private int stuid;
