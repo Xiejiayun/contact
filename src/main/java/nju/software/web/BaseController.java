@@ -17,7 +17,7 @@ public class BaseController {
 
     @RequestMapping(name = "/base.do" , method = RequestMethod.GET)
     public String base(HttpServletRequest request, HttpServletResponse response, ModelMap modelMap) {
-        return "home";
+        return "base";
     }
 
 }

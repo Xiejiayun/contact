@@ -14,6 +14,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <title>通讯录主界面</title>
     <link rel="stylesheet" href="resources/css/bootstrap.css"/>
+    <link rel="stylesheet" href="resources/css/bootstrap-theme.css"/>
 </head>
 <body>
 <nav class="navbar navbar-inverse">
@@ -30,33 +31,17 @@
         </div>
         <div id="navbar" class="collapse navbar-collapse">
             <ul class="nav navbar-nav">
-                <li><a href="base.do">主页</a></li>
-                <li class="active"><a href="student.do">通讯录</a></li>
+                <li class="active"><a href="base.do">主页</a></li>
+                <li><a href="student.do">通讯录</a></li>
             </ul>
         </div><!--/.nav-collapse -->
     </div>
 </nav>
 <div class="container">
-    <div class="panel panel-primary">
-        <!-- Default panel contents -->
-        <div class="panel-heading">联系人</div>
-        <div class="panel-body">
-        </div>
-        <!-- Table -->
-        <table class="table">
-            <th>序号</th>
-            <th>名字</th>
-            <th>年级</th>
-            <c:forEach var="user" items="${userList}" varStatus="status">
-                <tr>
-                    <td>${status.index + 1}</td>
-                    <td>${user.name}</td>
-                    <td>${user.grade}</td>
 
-                </tr>
-            </c:forEach>
-        </table>
-    </div>
+    <h1>Bootstrap starter template</h1>
+    <p class="lead">Use this document as a way to quickly start any new project.<br> All you get is this text and a
+        mostly barebones HTML document.</p>
 </div><!-- /.container -->
 
 
@@ -64,3 +49,4 @@
 <script type="text/javascript" src="resources/js/bootstrap.js"/>
 </body>
 </html>
+
