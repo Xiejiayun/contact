@@ -6,6 +6,7 @@
   <session-factory>
     <property name="connection.url">jdbc:mysql://localhost:3306/contact</property>
     <property name="connection.driver_class">com.mysql.jdbc.Driver</property>
+    <property name="hibernate.show_sql">true</property>
     <mapping class="nju.software.dao.entity.ClaStuRelationEntity"/>
     <mapping class="nju.software.dao.entity.ClassroomEntity"/>
     <mapping class="nju.software.dao.entity.StudentEntity"/>
