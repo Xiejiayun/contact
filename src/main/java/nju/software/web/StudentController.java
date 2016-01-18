@@ -24,8 +24,12 @@ public class StudentController {
 
     @RequestMapping(value = "/student.do" , method = RequestMethod.GET)
     public String student(HttpServletRequest request, HttpServletResponse response, ModelMap modelMap) {
-        List<StudentModel> listUsers = studentService.getAllStudents();
-        modelMap.put("userList", listUsers);
+        try {
+            List<StudentModel> listUsers = studentService.getAllStudents();
+            modelMap.put("userList", listUsers);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
         return "student";
     }
 

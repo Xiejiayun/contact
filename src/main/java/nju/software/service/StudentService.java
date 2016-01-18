@@ -1,5 +1,8 @@
 package nju.software.service;
 
+import com.google.code.ssm.api.ParameterValueKeyProvider;
+import com.google.code.ssm.api.ReadThroughAssignCache;
+import com.google.code.ssm.api.ReadThroughSingleCache;
 import nju.software.dao.StudentDao;
 import nju.software.dao.entity.StudentEntity;
 import nju.software.service.convertor.StudentConvertor;
@@ -17,17 +20,20 @@ public class StudentService {
     @Autowired
     StudentDao studentDao;
 
+    @ReadThroughAssignCache(assignedKey = "StudentModel/getAllStudents", namespace = "StudentModel", expiration = 600)
     public List<StudentModel> getAllStudents() {
         List<StudentEntity> studentEntities = studentDao.getAllStudents();
         return StudentConvertor.getModelsfromEntities(studentEntities);
     }
 
-    public StudentModel getStudentByName(String name) {
+    @ReadThroughSingleCache(namespace = "StudentModel", expiration = 600)
+    public StudentModel getStudentByName(@ParameterValueKeyProvider String name) {
         StudentEntity studentEntity = studentDao.getStudentByName(name);
         return StudentConvertor.getModelFromEntity(studentEntity);
     }
 
-    public StudentModel getStudentById(int stuid) {
+    @ReadThroughSingleCache(namespace = "StudentModel", expiration = 600)
+    public StudentModel getStudentById(@ParameterValueKeyProvider int stuid) {
         StudentEntity studentEntity = studentDao.getStudentById(stuid);
         return StudentConvertor.getModelFromEntity(studentEntity);
     }

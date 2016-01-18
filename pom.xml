@@ -182,6 +182,18 @@
             <artifactId>jboss-logging</artifactId>
             <version>3.2.0.Final</version>
         </dependency>
+
+        <!--MemCache-->
+        <dependency>
+            <groupId>com.google.code.simple-spring-memcached</groupId>
+            <artifactId>spring-cache</artifactId>
+            <version>3.6.0</version>
+        </dependency>
+        <dependency>
+            <groupId>com.google.code.simple-spring-memcached</groupId>
+            <artifactId>xmemcached-provider</artifactId>
+            <version>3.6.0</version>
+        </dependency>
     </dependencies>
 
 </project>

@@ -1,9 +1,11 @@
 package nju.software.service;
 
+import java.io.Serializable;
+
 /**
  * Created by lab on 16-1-15.
  */
-public class StudentModel {
+public class StudentModel implements Serializable{
 
     private int stuid;
     private String name;
