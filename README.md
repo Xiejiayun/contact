@@ -10,7 +10,7 @@ Cache:      Memcache
 3. Build mysql on the project
 4. Build the memcached platform
 5. Run projects on tomcat server
-6. Develop a simple project about school contact
+6. Develop a simple project about school contact  
 ## Tasks
 1. This project still needs add the memcached properties
 2. Implement create,update, search and delete options in the controller layer
