@@ -24,7 +24,7 @@ public class Dao {
         String driverName = "com.mysql.jdbc.Driver";
         try {
             Class.forName(driverName);
-            String serverName = "localhost";
+            String serverName = "127.0.0.1";
             String database = "contact";
             String url = "jdbc:mysql://" + serverName + "/" + database;
 
@@ -40,7 +40,6 @@ public class Dao {
             logger.error("Error occurs", e);
             e.printStackTrace();
         }
-
 
     }
 }
