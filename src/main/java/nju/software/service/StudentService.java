@@ -20,19 +20,19 @@ public class StudentService {
     @Autowired
     StudentDao studentDao;
 
-    @ReadThroughAssignCache(assignedKey = "StudentModel/getAllStudents", namespace = "StudentModel", expiration = 600)
+    @ReadThroughAssignCache(assignedKey = "StudentModel/getAllStudents", namespace = "StudentModel", expiration = 60)
     public List<StudentModel> getAllStudents() {
         List<StudentEntity> studentEntities = studentDao.getAllStudents();
         return StudentConvertor.getModelsfromEntities(studentEntities);
     }
 
-    @ReadThroughSingleCache(namespace = "StudentModel", expiration = 600)
+    @ReadThroughSingleCache(namespace = "StudentModel", expiration = 60)
     public StudentModel getStudentByName(@ParameterValueKeyProvider String name) {
         StudentEntity studentEntity = studentDao.getStudentByName(name);
         return StudentConvertor.getModelFromEntity(studentEntity);
     }
 
-    @ReadThroughSingleCache(namespace = "StudentModel", expiration = 600)
+    @ReadThroughSingleCache(namespace = "StudentModel", expiration = 60)
     public StudentModel getStudentById(@ParameterValueKeyProvider int stuid) {
         StudentEntity studentEntity = studentDao.getStudentById(stuid);
         return StudentConvertor.getModelFromEntity(studentEntity);

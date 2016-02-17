@@ -39,14 +39,25 @@ public class StudentController {
         String gender = request.getParameter("gender");
         String grade = request.getParameter("grade");
         int phone = Integer.parseInt(request.getParameter("phone"));
-
         StudentModel studentModel = new StudentModel(name, gender, grade, phone);
+        studentService.createStudent(studentModel);
         return "student";
     }
 
     @RequestMapping(value = "/updateStudent.do" , method = RequestMethod.GET)
     public String updateStudent(HttpServletRequest request, HttpServletResponse response, ModelMap modelMap) {
         Map paraMap= request.getParameterMap();
+        String id = request.getParameter("id");
+        StudentModel studentModel = studentService.getStudentById(Integer.parseInt(id));
+        String name = request.getParameter("name");
+        String gender = request.getParameter("gender");
+        String grade = request.getParameter("grade");
+        int phone = Integer.parseInt(request.getParameter("phone"));
+        studentModel.setName(name);
+        studentModel.setGender(gender);
+        studentModel.setGrade(grade);
+        studentModel.setPhone(phone);
+        studentService.updateStudent(studentModel);
         return "student";
     }
 

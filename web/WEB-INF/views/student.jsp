@@ -80,7 +80,7 @@
                         <td>${status.index + 1}</td>
                         <td>${user.name}</td>
                         <td>${user.grade}</td>
-                        <td><a href="javascript:void(0)">删除</a></td>
+                        <td><a class= "modify" href="javascript:void(0)">修改</a><a class= "delete" href="javascript:void(0)">删除</a></td>
                     </tr>
                 </c:forEach>
             </table>
