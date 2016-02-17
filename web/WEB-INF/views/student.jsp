@@ -14,6 +14,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <title>通讯录主界面</title>
     <link rel="stylesheet" href="resources/css/bootstrap.css"/>
+    <link rel="stylesheet" href="resources/css/base.css"/>
 </head>
 <body>
 <nav class="navbar navbar-inverse">
@@ -39,28 +40,58 @@
 <div class="container">
     <div class="panel panel-primary">
         <!-- Default panel contents -->
-        <div class="panel-heading">联系人</div>
-        <div class="panel-body">
-        </div>
-        <!-- Table -->
-        <table class="table">
-            <th>序号</th>
-            <th>名字</th>
-            <th>年级</th>
-            <c:forEach var="user" items="${userList}" varStatus="status">
-                <tr>
-                    <td>${status.index + 1}</td>
-                    <td>${user.name}</td>
-                    <td>${user.grade}</td>
+        <div class="panel-heading">新增联系人<span class="glyphicon glyphicon-plus" aria-hidden="true"
+                                              style="float: right"></span></div>
+        <div class="panel-body addcontact">
+            <table>
+                <div class="input-group">
+                    <span class="input-group-addon">姓名</span>
+                    <input type="text" class="form-control" id="username" placeholder="Username">
+                </div>
+                <div class="input-group">
+                    <span class="input-group-addon">性别</span>
+                    <input type="text" class="form-control" id="gender" placeholder="Gender">
+                </div>
+                <div class="input-group">
+                    <span class="input-group-addon">年级</span>
+                    <input type="text" class="form-control" id="grade" placeholder="Grade">
+                </div>
+                <div class="input-group">
+                    <span class="input-group-addon">电话</span>
+                    <input type="text" class="form-control" id="phone" placeholder="Phone">
+                </div>
+                <button type="button" class="btn btn-default savecontact">保存</button>
+            </table>
 
-                </tr>
-            </c:forEach>
-        </table>
+        </div>
+    </div>
+    <div class="panel panel-primary">
+        <!-- Default panel contents -->
+        <div class="panel-heading">查看联系人</div>
+        <div class="panel-body">
+            <!-- Table -->
+            <table class="table">
+                <th>序号</th>
+                <th>名字</th>
+                <th>年级</th>
+                <th>操作</th>
+                <c:forEach var="user" items="${userList}" varStatus="status">
+                    <tr class="datarow" data-stuid="${user.stuid}">
+                        <td>${status.index + 1}</td>
+                        <td>${user.name}</td>
+                        <td>${user.grade}</td>
+                        <td><a href="javascript:void(0)">删除</a></td>
+                    </tr>
+                </c:forEach>
+            </table>
+        </div>
+
     </div>
 </div><!-- /.container -->
 
 
 <script type="text/javascript" src="resources/js/jquery-1.12.0.js"/>
 <script type="text/javascript" src="resources/js/bootstrap.js"/>
+<script type="text/javascript" src="resources/js/base.js"/>
 </body>
 </html>

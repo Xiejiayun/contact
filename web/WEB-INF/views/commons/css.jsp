@@ -6,3 +6,4 @@
   To change this template use File | Settings | File Templates.
 --%>
 <style type="text/css" href="/WEB_INF/resources/css/bootstrap.css" />
+<style type="text/css" href="/WEB_INF/resources/css/base.css"/>
