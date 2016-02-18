@@ -1,5 +1,7 @@
 package nju.software.web;
 
+import com.sun.xml.internal.ws.api.message.Message;
+import com.sun.xml.internal.ws.client.sei.ResponseBuilder;
 import nju.software.service.StudentModel;
 import nju.software.service.StudentService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,6 +12,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.xml.bind.JAXBException;
+import javax.xml.stream.XMLStreamException;
 import java.util.List;
 import java.util.Map;
 
@@ -33,22 +37,21 @@ public class StudentController {
         return "student";
     }
 
-    @RequestMapping(value = "/createStudent.do" , method = RequestMethod.GET)
+    @RequestMapping(value = "/createStudent.do" , method = RequestMethod.POST)
     public String createStudent(HttpServletRequest request, HttpServletResponse response, ModelMap modelMap) {
-        String name = request.getParameter("name");
+        String username = request.getParameter("username");
         String gender = request.getParameter("gender");
         String grade = request.getParameter("grade");
         int phone = Integer.parseInt(request.getParameter("phone"));
-        StudentModel studentModel = new StudentModel(name, gender, grade, phone);
+        StudentModel studentModel = new StudentModel(username, gender, grade, phone);
         studentService.createStudent(studentModel);
         return "student";
     }
 
-    @RequestMapping(value = "/updateStudent.do" , method = RequestMethod.GET)
+    @RequestMapping(value = "/updateStudent.do" , method = RequestMethod.POST)
     public String updateStudent(HttpServletRequest request, HttpServletResponse response, ModelMap modelMap) {
-        Map paraMap= request.getParameterMap();
-        String id = request.getParameter("id");
-        StudentModel studentModel = studentService.getStudentById(Integer.parseInt(id));
+        String stuid = request.getParameter("stuid");
+        StudentModel studentModel = studentService.getStudentById(Integer.parseInt(stuid));
         String name = request.getParameter("name");
         String gender = request.getParameter("gender");
         String grade = request.getParameter("grade");
@@ -61,11 +64,11 @@ public class StudentController {
         return "student";
     }
 
-    @RequestMapping(value = "/deleteStudent.do" , method = RequestMethod.GET)
-    public String deleteStudent(HttpServletRequest request, HttpServletResponse response, ModelMap modelMap) {
-        List<StudentModel> listUsers = studentService.getAllStudents();
-        modelMap.put("userList", listUsers);
-        return "student";
+    @RequestMapping(value = "/deleteStudent.do" , method = RequestMethod.POST)
+    public void deleteStudent(HttpServletRequest request, HttpServletResponse response, ModelMap modelMap) {
+        int stuid = Integer.parseInt(request.getParameter("stuid"));
+        StudentModel studentModel = studentService.getStudentById(stuid);
+        boolean success = studentService.deleteStudent(studentModel);
     }
 
 }

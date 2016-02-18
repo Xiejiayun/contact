@@ -6,8 +6,7 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@page contentType="text/html" pageEncoding="UTF-8" %>
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
-"http://www.w3.org/TR/html4/loose.dtd">
+<!DOCTYPE html>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <html>
 <head>
@@ -46,21 +45,22 @@
             <table>
                 <div class="input-group">
                     <span class="input-group-addon">姓名</span>
-                    <input type="text" class="form-control" id="username" placeholder="Username">
+                    <input type="text" class="form-control" name="username" placeholder="Username">
                 </div>
                 <div class="input-group">
                     <span class="input-group-addon">性别</span>
-                    <input type="text" class="form-control" id="gender" placeholder="Gender">
+                    <input type="text" class="form-control" name="gender" placeholder="Gender">
                 </div>
                 <div class="input-group">
                     <span class="input-group-addon">年级</span>
-                    <input type="text" class="form-control" id="grade" placeholder="Grade">
+                    <input type="text" class="form-control" name="grade" placeholder="Grade">
                 </div>
                 <div class="input-group">
                     <span class="input-group-addon">电话</span>
-                    <input type="text" class="form-control" id="phone" placeholder="Phone">
+                    <input type="text" class="form-control" name="phone" placeholder="Phone">
                 </div>
-                <button type="button" class="btn btn-default savecontact">保存</button>
+                <button type="button" class="btn btn-default" id="savecontact">保存</button>
+                <div id="alert"></div>
             </table>
 
         </div>
@@ -80,18 +80,20 @@
                         <td>${status.index + 1}</td>
                         <td>${user.name}</td>
                         <td>${user.grade}</td>
-                        <td><a class= "modify" href="javascript:void(0)">修改</a><a class= "delete" href="javascript:void(0)">删除</a></td>
+                        <td><a class= "modify" data-stuid="${user.stuid}" href="javascript:void(0)">修改</a><a class= "delete" data-stuid="${user.stuid}" href="javascript:void(0)">删除</a></td>
                     </tr>
                 </c:forEach>
             </table>
         </div>
 
     </div>
-</div><!-- /.container -->
-
-
-<script type="text/javascript" src="resources/js/jquery-1.12.0.js"/>
-<script type="text/javascript" src="resources/js/bootstrap.js"/>
-<script type="text/javascript" src="resources/js/base.js"/>
+</div>
+<div class="alert alert-warning alert-dismissible" role="alert">
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+    <strong>Warning!</strong> Better check yourself, you're not looking too good.
+</div>
 </body>
+<script type="text/javascript" src="resources/js/jquery-1.12.0.js"></script>
+<script type="text/javascript" src="resources/js/bootstrap.js"></script>
+<script type="text/javascript" src="resources/js/base.js"></script>
 </html>

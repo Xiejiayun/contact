@@ -21,6 +21,7 @@ public class StudentDao extends HibernateDaoSupport {
      * @return
      */
     public List<StudentEntity> getAllStudents() {
+        logger.info("getAllStudents");
         List<StudentEntity> studentEntities = new ArrayList<StudentEntity>();
         List list = getHibernateTemplate().find("from StudentEntity");
         if (list != null)
@@ -29,6 +30,7 @@ public class StudentDao extends HibernateDaoSupport {
     }
 
     public StudentEntity getStudentByName(String name) {
+        logger.info("getStudentByName name=" + name );
         List<StudentEntity> studentEntities = new ArrayList<StudentEntity>();
         List list = getHibernateTemplate().find("from StudentEntity");
         if (list != null)
@@ -37,6 +39,7 @@ public class StudentDao extends HibernateDaoSupport {
     }
 
     public StudentEntity getStudentById(int stuid) {
+        logger.info("getStudentById id="+stuid);
         List<StudentEntity> studentEntities = new ArrayList<StudentEntity>();
         List list = getHibernateTemplate().find("from StudentEntity where stuid=?", stuid);
         if (list != null)
@@ -46,6 +49,7 @@ public class StudentDao extends HibernateDaoSupport {
 
 
     public boolean createStudent(StudentEntity studentEntity) {
+        logger.info("createStudent");
         try {
             getHibernateTemplate().evict(studentEntity);
             getHibernateTemplate().save(studentEntity);
@@ -57,6 +61,7 @@ public class StudentDao extends HibernateDaoSupport {
     }
 
     public boolean updateStudent(StudentEntity studentEntity) {
+        logger.info("updateStudent");
         try {
             getHibernateTemplate().evict(studentEntity);
             getHibernateTemplate().update(studentEntity);
@@ -68,6 +73,7 @@ public class StudentDao extends HibernateDaoSupport {
     }
 
     public boolean deleteStudent(StudentEntity studentEntity) {
+        logger.info("deleteStudent");
         try {
             getHibernateTemplate().delete(studentEntity);
         } catch (Exception e) {
